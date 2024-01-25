@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #ffb907;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Calculadora de Despesas</title>
+</head>
+<body>
+    <form action="cont.php" method="post" enctype="multipart/form-data">
+        <h1>Calculadora de Despesas</h1>
+        <label for="nomeUsuario">Nome do Usuário:</label>
+        <input type="text" name="nomeUsuario" required>
+
+        <label for="descricao">Descrição:</label>
+        <input type="text" name="descricao" required>
+
+        <label for="data">Data:</label>
+        <input type="data" name="data" required>
+
+        <label for="valor">Valor:</label>
+        <input type="text" name="valor" required>
+
+        <label for="transferencia">transferencia:</label>
+        <input type="text" name="transferencia" required>
+
+        
+        <label for="tipoDespesa">Tipo de Despesa:</label>
+        <select name="tipoDespesa" required>
+            <option value="Transporte">Transporte</option>
+            <option value="Hospedagem">Hospedagem</option>
+            <option value="Combustível">Combustível</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="EPis">EPis</option>
+            <option value="transferencia">transferencia</option>
+            <option value="Outros">Outros</option>
+        </select><br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
+>
