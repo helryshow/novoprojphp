@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -36,7 +37,9 @@
             color: #555;
         }
 
-        input, select, button {
+        input,
+        select,
+        button {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -61,6 +64,7 @@
     </style>
     <title>Calculadora de Despesas</title>
 </head>
+
 <body>
     <form action="cont.php" method="post" enctype="multipart/form-data">
         <h1>Calculadora de Despesas</h1>
@@ -79,7 +83,7 @@
         <label for="transferencia">transferencia:</label>
         <input type="text" name="transferencia" required>
 
-        
+
         <label for="tipoDespesa">Tipo de Despesa:</label>
         <select name="tipoDespesa" required>
             <option value="Transporte">Transporte</option>
@@ -92,5 +96,8 @@
         </select><br>
         <button type="submit">Enviar</button>
     </form>
+    <br>
+    <a href="despesas.php"><button>Ver despesas</button></a>
 </body>
+
 </html>
