@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$usuario = "root";
-$senha = "970125";
+$usuario = "novousuario";
+$senha = "usuario123";
 $banco = "gastos";
 $conn = new mysqli($host, $usuario, $senha, $banco);
 
@@ -16,14 +16,14 @@ if (isset($_POST['nomeUsuario']) && isset($_POST['descricao']) && isset($_POST['
     $descricao = $_POST['descricao'];
     $data = date('Y-m-d', strtotime($_POST['data']));
     $valor = $_POST['valor'];
-    $tipoDespesa = $_POST['tipoDespesa'];
     $transferencia = $_POST['transferencia'];
+    $tipoDespesa = $_POST['tipoDespesa'];
 
-    $sql = "INSERT INTO despesas (nome_usuario, descricao, data, valor, tipo_despesa, transferencia) 
+    $sql = "INSERT INTO despesas (nome_usuario, descricao, data, valor, transferencia, tipo_despesa) 
             VALUES (?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssdid", $nomeUsuario, $descricao, $data, $valor, $tipoDespesa, $transferencia);
+    $stmt->bind_param("sssdds", $nomeUsuario, $descricao, $data, $valor, $transferencia, $tipoDespesa);
 
     if ($stmt->execute()) {
         echo "Registro de despesa inserido com sucesso!";

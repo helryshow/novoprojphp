@@ -50,7 +50,7 @@
     <?php
     // Conectar ao banco de dados (substitua as credenciais conforme necessário)
     $host = "localhost";
-    $usuario = "root";
+    $usuario = "novousuario";
     $senha = "senac123456789";
     $banco = "gastos";
     $conn = new mysqli($host, $usuario, $senha, $banco);
