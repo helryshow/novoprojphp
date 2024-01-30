@@ -1,0 +1,5 @@
+Esse projeto foi densenvolvido com a missão de ajudar pessoas que estejam com dificuldades de tranformar paginas PHP ou HTML em PDF.
+Dessa maneira esperamos ajudar de alguma forma esses futuros progamadores.
+Primeiramente deve-se baixar o composer. Depois dentro do terminal baixar a ferramenta Dompdf Com o comando: composer require dompdf/dompdf.
+que vai ajudar a a fazer a exportação de paginas HTML  ou PHP em PDF. Depois disso é apenas seguir os comandos das paginas de exportação em PHP ou HTML.
+Tudo isso tambem com conexão com banco de dados.

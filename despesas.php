@@ -53,7 +53,7 @@
         }
 
         button {
-            padding: 10px;
+            padding: 8px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -91,8 +91,8 @@
         <?php
         // Conexão com o banco de dados
         $host = "localhost";
-        $usuario = "novousuario";
-        $senha = "lolo0909kiki9090";
+        $usuario = "root";
+        $senha = "970125";
         $banco = "gastos";
         $conn = new mysqli($host, $usuario, $senha, $banco);
 
@@ -101,6 +101,7 @@
             die("Erro de conexão: " . $conn->connect_error);
         }
 
+            
         // Recuperar dados da tabela despesas
         $consultaDespesas = "SELECT * FROM despesas";
         $resultadoDespesas = $conn->query($consultaDespesas);
@@ -118,10 +119,48 @@
             echo "Nenhum registro encontrado na tabela despesas.";
         }
 
+        // Calcular a soma do credito na tabela despesas
+ $consulcredito = "SELECT SUM(transferencia) AS credito FROM despesas";
+ $resulcredito = $conn->query($consulcredito);
+
+ if ($resulcredito->num_rows > 0) {
+     $row = $resulcredito->fetch_assoc();
+     $credito = $row['credito'];
+     echo "<b><br>Credito R$: $credito";
+ } else {
+     echo "<br>Nenhuma despesa encontrada." . $conn->error;
+ }
+ 
+
+// Calcular a soma do valor de saida na tabela despesas
+$consulsaida = "SELECT SUM(valor) AS saida FROM despesas";
+$resulsaida = $conn->query($consulsaida);
+
+if ($resulsaida->num_rows > 0) {
+    $row = $resulsaida->fetch_assoc();
+    $saida = $row['saida'];
+    echo "<b><br>Saida R$: $saida";
+} else {
+    echo "<br>Nenhuma despesa encontrada." . $conn->error;
+}
+
+// Calcular a soma da diferença entre transferencia e valor na tabela despesas
+$consultaSoma = "SELECT SUM(transferencia - valor) AS saldo FROM despesas";
+$resultadoSoma = $conn->query($consultaSoma);
+
+if ($resultadoSoma->num_rows > 0) {
+    $row = $resultadoSoma->fetch_assoc();
+    $saldo = $row['saldo'];
+    echo "<b><br>Saldo:R$ $saldo ";
+} else {
+    echo "<br>Nenhuma despesa encontrada.";
+}
+
         // Fechar a conexão
         $conn->close();
         ?>
-        <a href="index.html"><button class="botao">Voltar</button></a>
+
+        <br><a href="index.html"><button class="botao">Voltar</button></a>
         <form action="exportar_despesas.php" method="post">
             <button class="botao" name="exportarPDF" value="Exportar para PDF">Imprimir</button>
         </form>
