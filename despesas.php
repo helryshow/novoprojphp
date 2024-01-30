@@ -91,8 +91,8 @@
         <?php
         // Conexão com o banco de dados
         $host = "localhost";
-        $usuario = "root";
-        $senha = "970125";
+        $usuario = "seu usuario";
+        $senha = "sua senha";
         $banco = "gastos";
         $conn = new mysqli($host, $usuario, $senha, $banco);
 
